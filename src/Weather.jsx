@@ -12,12 +12,12 @@ const Weather = () => {
     const [weather, setWeather] = useState(null);
 
 
-    const apiKey = "c93547736cdcfa9be198acc057a92aa0";
+    const apiKey = "REACT_APP_API_KEY";
 
     const fetchWeather = async () => {
         try {
             const response = await axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
             );
             setWeather(response.data);
             setError(null);
